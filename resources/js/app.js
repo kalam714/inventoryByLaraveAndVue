@@ -9,6 +9,9 @@ Vue.use(VueRouter)
 
 import {routes} from './routes';
 
+import User from './Helpers/User';
+window.User=User
+
 const router = new VueRouter({
     routes,
     mode: 'history'

@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="{{asset('backend/img/logo/logo.png')}}" rel="icon"> 
-  <title>RuangAdmin - Dashboard</title>
+  <title>Kalam</title>
   <link href="{{asset('css/app.css')}}" type="text/css" rel="stylesheet">
   <link href="{{asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{asset('backend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
