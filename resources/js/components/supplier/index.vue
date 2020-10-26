@@ -1,7 +1,7 @@
 <template>
    <div>
        <div class="row">
-           <router-link to="/store-employee" class="btn btn-primary">Add Employee</router-link>
+           <router-link to="/store-supplier" class="btn btn-primary">Add Supplier</router-link>
 
        </div>
        <br>
@@ -12,7 +12,7 @@
               <!-- Simple Tables -->
               <div class="card">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Employee Information</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Supplier Information</h6>
                 </div>
                 <div class="table-responsive">
                   <table class="table align-items-center table-flush">
@@ -21,19 +21,19 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        <th>Sallary</th>
+                        <th>Shop Name</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="employee in filtersearch" :key="employee.id">
-                        <td>{{employee.name}}</td>
-                        <td>{{employee.email}}</td>
-                        <td>{{employee.phone}}</td>
-                        <td>{{employee.sallary}}</td>
+                      <tr v-for="supplier in filtersearch" :key="supplier.id">
+                        <td>{{supplier.name}}</td>
+                        <td>{{supplier.email}}</td>
+                        <td>{{supplier.phone}}</td>
+                        <td>{{supplier.shopname}}</td>
                         <td>
-                          <router-link  :to="{name:'edit-employee',params:{id:employee.id}}" class="btn btn-sm btn-primary">Edit</router-link>
-                          <a @click="deleteEmployee(employee.id)" class="btn btn-sm btn-danger">Delete</a>
+                          <router-link  :to="{name:'edit-supplier',params:{id:supplier.id}}" class="btn btn-sm btn-primary">Edit</router-link>
+                          <a @click="deleteSupplier(supplier.id)" class="btn btn-sm btn-danger">Delete</a>
                            
                         </td>
                       </tr>
@@ -60,27 +60,27 @@ export default {
   },
   data(){
     return{
-      employees:[],
+      suppliers:[],
       searchTerm:''
 
     }
   },
   computed:{
     filtersearch(){
-      return  this.employees.filter(employee =>{
-        return employee.name.match(this.searchTerm)
+      return  this.suppliers.filter(supplier =>{
+        return supplier.name.match(this.searchTerm)
       })
     }
 
   },
 
   methods:{
-    allEmployee(){
-      axios.get('/api/employee/')
-      .then(({data}) => (this.employees=data))
+    allSupplier(){
+      axios.get('/api/supplier/')
+      .then(({data}) => (this.suppliers=data))
       .catch()
     },
-    deleteEmployee(id){
+    deleteSupplier(id){
             Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -91,14 +91,14 @@ export default {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              axios.delete('api/employee/'+id)
+              axios.delete('api/supplier/'+id)
               .then(() =>{
-                this.employees =this.employees.filter(employee=>{
-                return employee.id !=id
+                this.suppliers =this.suppliers.filter(supplier=>{
+                return supplier.id !=id
                 })
               })
               .catch(() =>{
-                return $router.push({name:'employee'})
+                return $router.push({name:'supplier'})
               })
               Swal.fire(
                 'Deleted!',
@@ -114,7 +114,7 @@ export default {
      
   },
   created(){
-    this.allEmployee();
+    this.allSupplier();
   }
 }
 </script>
