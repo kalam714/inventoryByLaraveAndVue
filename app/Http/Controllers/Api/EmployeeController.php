@@ -8,6 +8,7 @@ use Image;
 use App\Models\Employee;
 use DB;
 
+
 class EmployeeController extends Controller
 {
     /**
@@ -44,13 +45,18 @@ class EmployeeController extends Controller
            'email' => 'required',
            'phone' => 'required'
         ]);
-        if($request->photo){
-        $fileNameWithExt=$request->file('photo')->getClientOriginalName();
-        $fileName=pathinfo($fileNameWithExt,PATHINFO_FILENAME);
-        $extension=$request->file('photo')->getClientOriginalExtension();
-        $fileNameToStore=$fileName.'_'.time().'.'.$extension;
-        $path=$request->file('photo')->storeAS('public/photos/');
         
+        if($request->photo){
+
+            $positon=strpos($request->photo, ';');
+            $sub=substr($request->photo, 0,$positon);
+            $ext=explode('/', $sub)[1];
+            $name=time().".".$ext;
+            $img=Image::make($request->photo)->resize(240,200);
+            $upload_path='backend/employee/';
+            $image_url=$upload_path.$name;
+            $img->save($image_url);
+
         $employee=new Employee();
         $employee->name=$request->name;
         $employee->email=$request->email;
@@ -59,7 +65,7 @@ class EmployeeController extends Controller
         $employee->address=$request->address;
         $employee->nid=$request->nid;
         $employee->joining_date=$request->joining_date;
-        $employee->photo=$fileNameToStore;
+        $employee->photo=$image_url;
         $employee->save();
         }else{
             $employee=new Employee();

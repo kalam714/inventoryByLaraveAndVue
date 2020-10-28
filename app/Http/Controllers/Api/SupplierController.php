@@ -48,20 +48,20 @@ class SupplierController extends Controller
         $sub=substr($request->photo, 0,$positon);
         $ext=explode('/', $sub)[1];
         $name=time().".".$ext;
-        $img=Image::make($request->photo)-resize(240,200);
+        $img=Image::make($request->photo)->resize(240,200);
         $upload_path='backend/supplier/';
         $image_url=$upload_path.$name;
         $img->save($image_url);
 
          
-         $supplier=new Supplier();
+         $supplier=new Supplier;
          $supplier->name=$request->name;
          $supplier->email=$request->email;
          $supplier->phone=$request->phone;
          $supplier->shopname=$request->shopname;
          $supplier->address=$request->address;
         
-         $supplier->photo=$fileNameToStore;
+         $supplier->photo=$image_url;
          $supplier->save();
          }else{
              $supplier=new Supplier();

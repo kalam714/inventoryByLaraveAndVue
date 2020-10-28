@@ -28,7 +28,7 @@
                     <tbody>
                       <tr v-for="supplier in filtersearch" :key="supplier.id">
                         <td>{{supplier.name}}</td>
-                        <td>{{supplier.email}}</td>
+                        <td><img :src="supplier.photo" width="30px" height="30px"></td>
                         <td>{{supplier.phone}}</td>
                         <td>{{supplier.shopname}}</td>
                         <td>

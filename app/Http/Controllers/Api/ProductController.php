@@ -49,16 +49,16 @@ class ProductController extends Controller
             'product_quantity' => 'required'
          ]);
 
-        if($request->image){
+         if($request->image){
 
-        $positon=strpos($request->image, ';');
-        $sub=substr($request->image, 0,$positon);
-        $ext=explode('/', $sub)[1];
-        $name=time().".".$ext;
-        $img=Image::make($request->image)-resize(240,200);
-        $upload_path='backend/product/';
-        $image_url=$upload_path.$name;
-        $img->save($image_url);
+            $positon=strpos($request->image, ';');
+            $sub=substr($request->image, 0,$positon);
+            $ext=explode('/', $sub)[1];
+            $name=time().".".$ext;
+            $img=Image::make($request->image)->resize(240,200);
+            $upload_path='backend/product/';
+            $image_url=$upload_path.$name;
+            $img->save($image_url);
 
          
          $product=new Product();
@@ -72,7 +72,7 @@ class ProductController extends Controller
          $product->buying_date=$request->buying_date;
          $product->product_quantity=$request->product_quantity;
         
-         $product->image=$fileNameToStore;
+         $product->image=$image_url;
          $product->save();
          }else{
             $product=new Product();

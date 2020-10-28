@@ -30,7 +30,7 @@
                     <tbody>
                       <tr v-for="product in filtersearch" :key="product.id">
                         <td>{{product.product_name}}</td>
-                        <td>{{product.product_code}}</td>
+                        <td><img :src="product.image" width="30px" height="30px"></td>
                         <td>{{product.category_name}}</td>
                         <td>{{product.shopname}}</td>
                         <td>{{product.product_quantity}}</td>

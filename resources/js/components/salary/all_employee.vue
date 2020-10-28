@@ -19,7 +19,7 @@
                     <thead class="thead-light">
                       <tr>
                         <th>Name</th>
-                        <th>Photo</th>
+                        <th>Email</th>
                         <th>Phone</th>
                         <th>Sallary</th>
                         <th>Action</th>
@@ -28,12 +28,12 @@
                     <tbody>
                       <tr v-for="employee in filtersearch" :key="employee.id">
                         <td>{{employee.name}}</td>
-                        <td><img :src="employee.photo" width="30px" height="30px"></td>
+                        <td>{{employee.email}}</td>
                         <td>{{employee.phone}}</td>
                         <td>{{employee.sallary}}</td>
                         <td>
-                          <router-link  :to="{name:'edit-employee',params:{id:employee.id}}" class="btn btn-sm btn-primary">Edit</router-link>
-                          <a @click="deleteEmployee(employee.id)" class="btn btn-sm btn-danger">Delete</a>
+                          <router-link  :to="{name:'pay-salary',params:{id:employee.id}}" class="btn btn-sm btn-primary">Pay Sallary</router-link>
+                       
                            
                         </td>
                       </tr>
@@ -80,37 +80,7 @@ export default {
       .then(({data}) => (this.employees=data))
       .catch()
     },
-    deleteEmployee(id){
-            Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              axios.delete('api/employee/'+id)
-              .then(() =>{
-                this.employees =this.employees.filter(employee=>{
-                return employee.id !=id
-                })
-              })
-              .catch(() =>{
-                return $router.push({name:'employee'})
-              })
-              Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
-            }
-          })
-                
 
-
-    }
      
   },
   created(){

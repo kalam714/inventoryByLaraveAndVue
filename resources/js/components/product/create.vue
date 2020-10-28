@@ -169,13 +169,13 @@ export default {
   },
   methods:{
            onFileSelected(event){
-           let file=event.target.files[0];
+          let file=event.target.files[0];
         
          
-          let reader =new FileReader();
-          reader.onload=event =>{
-          this.form.photo=event.target.result
-         console.log(event.target.result)
+              let reader =new FileReader();
+              reader.onload=event =>{
+                  this.form.image=event.target.result
+                  console.log(event.target.result)
 
               };
               reader.readAsDataURL(file)
