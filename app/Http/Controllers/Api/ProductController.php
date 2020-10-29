@@ -141,4 +141,9 @@ class ProductController extends Controller
         }
         $product->delete();
     }
+    public function stockUpdate(Request $request,$id){
+        $product=Product::find($id);
+        $product->product_quantity=$request->product_quantity;
+        $product->save();
+    }
 }
