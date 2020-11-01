@@ -33,3 +33,6 @@ Route::get('/removeCart/{id}','App\Http\Controllers\Api\CartController@removeCar
 
 Route::get('/increment/{id}','App\Http\Controllers\Api\CartController@increment'); 
 Route::get('/decrement/{id}','App\Http\Controllers\Api\CartController@decrement'); 
+
+Route::post('/orderdone','App\Http\Controllers\Api\PosController@orderDone'); 
+Route::get('/order','App\Http\Controllers\Api\OrderController@TodaysOrder'); 

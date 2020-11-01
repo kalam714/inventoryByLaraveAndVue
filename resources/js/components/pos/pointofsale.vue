@@ -65,20 +65,20 @@
                   <li class="list-group-item d-flex justify-content-between align-items-center"><strong>Totsl:$ {{subtotal * 2/100 +subtotal}}</strong></li>
                   </ul>
                   <br><br>
-                  <form>
+                  <form @submit.prevent="orderDone">
                     <label>Customer Name</label>
                     <select class="form-control" v-model="customer_id" >
-                      <option v-for="customer in customers">{{customer.name}}</option>
+                      <option :value="customer.id" v-for="customer in customers">{{customer.name}}</option>
                       
 
 
                     </select>
                       <label>Pay</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" v-model="pay"> 
                       <label>Due</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" v-model="due">
                       <label>Pay By</label>
-                    <select class="form-control" >
+                    <select class="form-control" v-model="payby" >
                       <option value="Handcash">Hand Cash</option>
                       <option value="Check">Check</option>
                       <option value="Gigtcard">Gift Card</option>
@@ -201,6 +201,12 @@ export default {
   },
   data(){
     return{
+      customer_id:'',
+      pay:'',
+      vat:2,
+      due:'',
+      payby:'',
+     
       products:[],
       categories:'',
       getproudcts:[],
@@ -237,9 +243,19 @@ export default {
       return sum;
     },
 
+    orderDone(){
+      let total = this.subtotal * 2/100 + this.subtotal
+      let data = {quantity:this.quantity,subtotal:this.subtotal,customer_id:this.customer_id,pay:this.pay,due:this.due,
+      payby:this.payby,vat:this.vat, total:total}
+      axios.post('/api/orderdone',data)
+      .then(() =>{
+        Notification.success()
+        this.$router.push({name:'home'})
+      })
 
+
+  }
   },
-
   methods:{
     AddToCart(id){
      axios.get('/api/addToCart/'+id)
@@ -310,6 +326,7 @@ cartProduct(){
   }
 
 }
+
 </script>
 <style scoped>
 
