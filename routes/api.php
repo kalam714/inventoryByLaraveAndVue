@@ -36,3 +36,11 @@ Route::get('/decrement/{id}','App\Http\Controllers\Api\CartController@decrement'
 
 Route::post('/orderdone','App\Http\Controllers\Api\PosController@orderDone'); 
 Route::get('/order','App\Http\Controllers\Api\OrderController@TodaysOrder'); 
+Route::get('/orders/{id}','App\Http\Controllers\Api\OrderController@orderDetails'); 
+Route::get('/orders/details/{id}','App\Http\Controllers\Api\OrderController@orderDetailsAll'); 
+Route::post('/search/order','App\Http\Controllers\Api\OrderController@searchOrderByDate'); 
+Route::get('/today/sell','App\Http\Controllers\Api\DashboardController@todaySell'); 
+Route::get('/today/income','App\Http\Controllers\Api\DashboardController@todayIncome'); 
+Route::get('/today/due','App\Http\Controllers\Api\DashboardController@todayDue');
+Route::get('/today/expense','App\Http\Controllers\Api\DashboardController@todayExpense');
+Route::get('/stockout','App\Http\Controllers\Api\DashboardController@stockOut');
