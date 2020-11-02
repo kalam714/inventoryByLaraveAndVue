@@ -3899,22 +3899,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     if (!User.loggedIn()) {
@@ -51856,12 +51840,10 @@ var render = function() {
                   "div",
                   { staticClass: "h5 mb-0 font-weight-bold text-gray-800" },
                   [_vm._v("$ " + _vm._s(_vm.todaysell))]
-                ),
-                _vm._v(" "),
-                _vm._m(1)
+                )
               ]),
               _vm._v(" "),
-              _vm._m(2)
+              _vm._m(1)
             ])
           ])
         ])
@@ -51884,12 +51866,10 @@ var render = function() {
                   "div",
                   { staticClass: "h5 mb-0 font-weight-bold text-gray-800" },
                   [_vm._v("$ " + _vm._s(_vm.income))]
-                ),
-                _vm._v(" "),
-                _vm._m(3)
+                )
               ]),
               _vm._v(" "),
-              _vm._m(4)
+              _vm._m(2)
             ])
           ])
         ])
@@ -51914,55 +51894,27 @@ var render = function() {
                     staticClass: "h5 mb-0 mr-3 font-weight-bold text-gray-800"
                   },
                   [_vm._v("$ " + _vm._s(_vm.due))]
-                ),
-                _vm._v(" "),
-                _vm._m(5)
+                )
               ]),
               _vm._v(" "),
-              _vm._m(6)
+              _vm._m(3)
             ])
           ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-xl-3 col-md-6 mb-4" }, [
-        _c("div", { staticClass: "card h-100" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "row no-gutters align-items-center" }, [
-              _c("div", { staticClass: "col mr-2" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "text-xs font-weight-bold text-uppercase mb-1"
-                  },
-                  [_vm._v("Todays Expense")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "h5 mb-0 font-weight-bold text-gray-800" },
-                  [_vm._v(_vm._s(_vm.expense))]
-                ),
-                _vm._v(" "),
-                _vm._m(7)
-              ]),
-              _vm._v(" "),
-              _vm._m(8)
-            ])
-          ])
-        ])
-      ]),
+      _vm._m(4),
       _vm._v(" "),
       _c("div", { staticClass: "col-lg-12 mb-4" }, [
         _c("div", { staticClass: "card" }, [
-          _vm._m(9),
+          _vm._m(5),
           _vm._v(" "),
           _c("div", { staticClass: "table-responsive" }, [
             _c(
               "table",
               { staticClass: "table align-items-center table-flush" },
               [
-                _vm._m(10),
+                _vm._m(6),
                 _vm._v(" "),
                 _c(
                   "tbody",
@@ -52006,7 +51958,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(11)
+    _vm._m(7)
   ])
 }
 var staticRenderFns = [
@@ -52045,34 +51997,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-2 mb-0 text-muted text-xs" }, [
-      _c("span", { staticClass: "text-success mr-2" }, [
-        _c("i", { staticClass: "fa fa-arrow-up" }),
-        _vm._v(" 3.48%")
-      ]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Since last month")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-auto" }, [
       _c("i", { staticClass: "fas fa-calendar fa-2x text-primary" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-2 mb-0 text-muted text-xs" }, [
-      _c("span", { staticClass: "text-success mr-2" }, [
-        _c("i", { staticClass: "fas fa-arrow-up" }),
-        _vm._v(" 12%")
-      ]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Since last years")])
     ])
   },
   function() {
@@ -52087,19 +52013,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-2 mb-0 text-muted text-xs" }, [
-      _c("span", { staticClass: "text-success mr-2" }, [
-        _c("i", { staticClass: "fas fa-arrow-up" }),
-        _vm._v(" 20.4%")
-      ]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Since last month")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-auto" }, [
       _c("i", { staticClass: "fas fa-users fa-2x text-info" })
     ])
@@ -52108,21 +52021,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-2 mb-0 text-muted text-xs" }, [
-      _c("span", { staticClass: "text-danger mr-2" }, [
-        _c("i", { staticClass: "fas fa-arrow-down" }),
-        _vm._v(" 1.10%")
-      ]),
-      _vm._v(" "),
-      _c("span", [_vm._v("Since yesterday")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-auto" }, [
-      _c("i", { staticClass: "fas fa-comments fa-2x text-warning" })
+    return _c("div", { staticClass: "col-xl-3 col-md-6 mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "row no-gutters align-items-center" }, [
+            _c("div", { staticClass: "col-auto" }, [
+              _c("i", { staticClass: "fas fa-comments fa-2x text-warning" })
+            ])
+          ])
+        ])
+      ])
     ])
   },
   function() {
